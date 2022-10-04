@@ -170,17 +170,8 @@ alter proxyconfig set observer_sys_password='proxyROPWD123';
 **创建 obproxy 和 observer 通讯用户**
 
 ```sql
-obclient -h172.16.120.164 -uroot@sys#obdemo -P2883 -prootPWD123 -c -A oceanbase
-
+obclient -h172.16.120.165 -uroot@sys -P2881 -prootPWD123 -c -A oceanbase
 grant select on oceanbase.* to proxyro identified by 'proxyROPWD123';
-
-obclient [oceanbase]> show processlist;
-+------+--------+------+----------------------+-----------+-------------+-------------------+-------------------+-------+-------+
-| Id   | Tenant | User | Host                 | db        | trans_count | svr_session_count | state             | tid   | pid   |
-+------+--------+------+----------------------+-----------+-------------+-------------------+-------------------+-------+-------+
-|    9 | sys    | root | 172.16.120.164:21614 | oceanbase |           0 |                 1 | MCS_ACTIVE_READER | 13596 | 13596 |
-+------+--------+------+----------------------+-----------+-------------+-------------------+-------------------+-------+-------+
-1 row in set (0.000 sec)
 
 obclient [oceanbase]> show full processlist;
 +------------+---------+--------+----------------------+-----------+---------+------+--------+-----------------------+----------------+------+----------------------+
