@@ -128,6 +128,17 @@ obclient [(none)]> set session ob_query_timeout=1000000000; alter system bootstr
 obclient [oceanbase]> alter user root identified by 'rootPWD123';
 ```
 
+>常见 bootstrap 失败原因
+>+ 集群里 OBServer 节点之间网络延时超过 200ms（建议在 30ms 以内）
+>+ 集群里 OBServer 节点之间时间同步误差超过 100ms（建议在 5ms 以内）
+>+ 主机 ulimit 会话限制没有修改或生效
+>+ 主机内核参数 sysctl.conf 没有修改或生效
+>+ OBServer 启动用户不对，建议 admin
+>+ OBServer 启动目录不对，必须是 ~/oceanbase
+>+ OBServer 的可用内存低于 8G
+>+ OBServer 的事务日志目录可用空间低于 5%
+>+ OBServer 启动参数不对（zone 名称对不上，rootservice_list 地址或格式不对，集群名不统一等）
+
 
 ### 部署 OBProxy
 
@@ -184,6 +195,14 @@ obclient [oceanbase]> show full processlist;
 
 obclient [oceanbase]> show proxyconfig like '%_sys_password%';
 ```
+
+>常见 OBProxy 连接失败原因:
+>+ 启动用户不对，建议 admin
+>+ 启动目录不对，必须是 `~/obproxy-<version>`
+>+ proxyro 的用户需要在 OB 集群里创建，并建议设置密码
+>+ proxyro 的密码必须在 OBProxy 进程里通过参数 `observer_sys_password` 设置
+>+ OBProxy 启动时指定的集群名（-c）跟 OB 集群里的 Cluster 不一致
+
 
 ### 创建业务租户、业务数据库和表
 
