@@ -325,7 +325,7 @@ INSERT INTO %s (w_id,w_name,w_street_1,w_street_2,w_city,w_state,w_zip,w_tax,w_y
 
 **迁移完成，进行数据对比**
 
-![](media/16648945479276/16649506952475.jpg)
+
 
 
 ## DataX 的`channel bps`错误
