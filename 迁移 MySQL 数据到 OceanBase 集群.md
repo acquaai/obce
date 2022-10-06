@@ -325,7 +325,7 @@ INSERT INTO %s (w_id,w_name,w_street_1,w_street_2,w_city,w_state,w_zip,w_tax,w_y
 
 **迁移完成，进行数据对比**
 
-https://github.com/acquaai/obce/datax_oms.jpg
+![image](https://github.com/acquaai/obce/blob/main/datax_oms.jpg)
 
 
 ## DataX 的`channel bps`错误
