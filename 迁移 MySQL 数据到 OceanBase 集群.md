@@ -348,6 +348,10 @@ com.alibaba.datax.common.exception.DataXException: Code:[Framework-03], Descript
 
 **处理办法:**
 
+```sh
+[root@obdocker datax]# vi conf/core.json
+```
+
 修改 `core -> transport -> channel -> speed -> "byte": 2000000，将单个 channel 的大小改为 2MB 即可`。
 
 
