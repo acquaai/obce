@@ -212,6 +212,7 @@ Server version: 5.7.25 OceanBase 3.1.4 (r10000092022071511-b4bfa011ceaef428782dc
 Copyright (c) 2000, 2022, OceanBase and/or its affiliates. All rights reserved.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
 obclient [oceanbase]> select a.zone,concat(a.svr_ip,':',a.svr_port) observer, cpu_total, cpu_assigned, (cpu_total-cpu_assigned) cpu_free, mem_total/1024/1024/1024 mem_total_gb, mem_assigned/1024/1024/1024 mem_assign_gb, (mem_total-mem_assigned)/1024/1024/1024 mem_free_gb
      from __all_virtual_server_stat a join __all_server b on (a.svr_ip=b.svr_ip and a.svr_port=b.svr_port)
      order by a.zone, a.svr_ip
